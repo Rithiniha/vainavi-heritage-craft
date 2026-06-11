@@ -24,11 +24,11 @@ export function Footer() {
           <div className="mt-5 flex gap-3">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"
                className="w-9 h-9 inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--primary-dark)] transition">
-              <Instagram size={16} />
+              <InstagramIcon />
             </a>
             <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"
                className="w-9 h-9 inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--primary-dark)] transition">
-              <Facebook size={16} />
+              <FacebookIcon />
             </a>
             <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" aria-label="WhatsApp"
                className="w-9 h-9 inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--primary-dark)] transition">
