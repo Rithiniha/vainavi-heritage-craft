@@ -24,6 +24,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navText = scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white";
+  const logoText = scrolled ? "text-primary" : "text-white";
+  const subText = scrolled ? "text-muted-foreground" : "text-white/70";
+  const iconBtn = scrolled ? "text-foreground" : "text-white";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -34,10 +39,10 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8 flex items-center justify-between h-18 py-3">
         <Link to="/" className="flex flex-col leading-none">
-          <span className="font-display text-2xl font-bold text-primary tracking-tight">
+          <span className={`font-display text-2xl font-bold tracking-tight transition-colors ${logoText}`}>
             VAINAVI
           </span>
-          <span className="text-[10px] font-semibold tracking-[0.25em] text-muted-foreground mt-0.5">
+          <span className={`text-[10px] font-semibold tracking-[0.25em] mt-0.5 transition-colors ${subText}`}>
             COLD PRESS
           </span>
         </Link>
@@ -47,7 +52,7 @@ export function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${navText}`}
             >
               {item.label}
             </a>
@@ -68,7 +73,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="lg:hidden p-2 text-foreground"
+          className={`lg:hidden p-2 transition-colors ${iconBtn}`}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
