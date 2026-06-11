@@ -63,63 +63,36 @@ function Home() {
 /* ----------------------------- HERO ----------------------------- */
 function Hero() {
   return (
-    <section id="home" className="relative pt-28 lg:pt-32 pb-20 overflow-hidden bg-[var(--beige)]">
+    <section id="home" className="relative h-[100dvh] overflow-hidden">
+      <img
+        src={heroAsset.url}
+        alt="Vainavi Cold Press — Pure cold pressed oils and millets"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Subtle top gradient for navbar readability */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 50%), radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--gold) 15%, transparent), transparent 50%)",
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 30%, transparent 60%)",
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span className="eyebrow"><Leaf size={14} /> Traditional Wood Pressed Goodness</span>
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--primary-dark)] leading-[1.05]">
-            Pure Cold-Pressed Oils &
-            <span className="block text-primary"> Nutritious Traditional Millets</span>
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Bringing farm-fresh nutrition to families through traditional extraction methods and wholesome grains.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="btn-primary">Enquire Now <ArrowRight size={16} /></a>
-            <a href="#products" className="btn-outline">Explore Products</a>
-          </div>
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
-            {[
-              { i: <Leaf size={16} />, t: "100% Natural" },
-              { i: <ShieldCheck size={16} />, t: "Chemical Free" },
-              { i: <Flame size={16} />, t: "Wood Pressed" },
-              { i: <HandHeart size={16} />, t: "Locally Sourced" },
-            ].map((x) => (
-              <div key={x.t} className="flex items-center gap-2 text-sm text-foreground/80">
-                <span className="w-7 h-7 inline-flex items-center justify-center rounded-full bg-primary/10 text-primary">{x.i}</span>
-                {x.t}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
+      {/* Scroll indicator */}
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/90 hover:text-white transition-colors"
+      >
+        <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-[0_30px_80px_-30px_rgba(36,70,59,0.45)] ring-1 ring-primary/10 float-anim">
-            <img
-              src={heroAsset.url}
-              alt="Vainavi Cold Press — Pure cold pressed oils and millets"
-              width={1600}
-              height={640}
-              className="w-full h-auto block"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-4 hidden sm:flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-card text-sm font-medium text-primary">
-            <Sparkles size={14} className="text-[var(--gold)]" /> Trusted by 1000+ families
-          </div>
+          <ChevronDown size={20} />
         </motion.div>
-      </div>
+      </motion.a>
     </section>
   );
 }
