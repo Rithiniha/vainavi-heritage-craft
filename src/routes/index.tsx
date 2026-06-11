@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  Leaf, Wheat, Heart, Recycle, HandHeart,
+  Leaf, Sparkles, ShieldCheck, Wheat, Heart, Recycle, HandHeart,
   Flame, Droplet, CheckCircle2, Star, ArrowRight, MessageCircle, Send,
   ChevronDown,
 } from "lucide-react";
