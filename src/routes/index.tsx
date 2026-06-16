@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Leaf, Sparkles, ShieldCheck, Wheat, Heart, Recycle, HandHeart,
-  Flame, Droplet, CheckCircle2, Star, ArrowRight, MessageCircle, Send,
+  Flame, Droplet, CheckCircle2, Star, ArrowRight, Send,
 } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const WHATSAPP = "https://wa.me/919999999999?text=Hello%20Vainavi%2C%20I%27d%20like%20to%20enquire";
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -50,7 +50,6 @@ function Home() {
         <WhyUs />
         <Benefits />
         <Testimonials />
-        <Blog />
         <Enquiry />
       </main>
       <Footer />
@@ -398,54 +397,6 @@ function Testimonials() {
   );
 }
 
-/* ----------------------------- BLOG ----------------------------- */
-function Blog() {
-  const posts = [
-    { t: "Benefits of Cold Pressed Oils", e: "How traditional extraction preserves nutrients you can actually taste.", c: "from-amber-100 to-amber-200" },
-    { t: "Why Millets Are Returning to Indian Kitchens", e: "A look at the heritage grains making a comeback for good reason.", c: "from-emerald-100 to-emerald-200" },
-    { t: "How to Choose the Right Cooking Oil", e: "A simple guide to picking oils that match your cooking and health goals.", c: "from-yellow-100 to-yellow-200" },
-  ];
-  return (
-    <section id="blog" className="section-pad bg-background">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <motion.div {...fadeUp} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-          <div>
-            <span className="eyebrow"><Leaf size={14} /> Journal</span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">Latest Insights</h2>
-          </div>
-          <a href="#contact" className="text-primary font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
-            View all <ArrowRight size={16} />
-          </a>
-        </motion.div>
-        <div className="grid md:grid-cols-3 gap-7">
-          {posts.map((p, i) => (
-            <motion.article
-              key={p.t}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{ y: -4 }}
-              className="bg-background rounded-2xl overflow-hidden ring-1 ring-border shadow-soft hover:shadow-card transition"
-            >
-              <div className={`aspect-[16/10] bg-gradient-to-br ${p.c} flex items-center justify-center`}>
-                <Leaf size={48} className="text-[var(--primary-dark)]/40" />
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-[var(--primary-dark)]">{p.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.e}</p>
-                <button className="mt-5 text-primary font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
-                  Read More <ArrowRight size={14} />
-                </button>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ----------------------------- ENQUIRY ----------------------------- */
 function Enquiry() {
   return (
@@ -455,20 +406,17 @@ function Enquiry() {
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
         <motion.div {...fadeUp}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[var(--gold)] bg-white/10 px-3 py-1.5 rounded-full">
-            <MessageCircle size={14} /> Get In Touch
+            <Send size={14} /> Get In Touch
           </span>
           <h2 className="mt-5 text-3xl sm:text-4xl font-bold leading-tight">We'd love to hear from you.</h2>
           <p className="mt-4 text-white/80 leading-relaxed">
-            Interested in our products? Drop us a message or reach out on WhatsApp — we'll get back to you with details, pricing, and delivery options.
+            Interested in our products? Drop us a message and we'll get back to you with details, pricing, and delivery options.
           </p>
           <div className="mt-8 space-y-3 text-sm text-white/85">
             <p>📞 +91 99999 99999</p>
             <p>✉️ hello@vainavi.in</p>
             <p>📍 Tamil Nadu, India</p>
           </div>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-gold mt-8">
-            <MessageCircle size={16} /> Chat on WhatsApp
-          </a>
         </motion.div>
 
         <motion.form
