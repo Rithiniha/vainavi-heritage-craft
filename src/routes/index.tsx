@@ -454,20 +454,17 @@ function Enquiry() {
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
         <motion.div {...fadeUp}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[var(--gold)] bg-white/10 px-3 py-1.5 rounded-full">
-            <MessageCircle size={14} /> Get In Touch
+            <Send size={14} /> Get In Touch
           </span>
           <h2 className="mt-5 text-3xl sm:text-4xl font-bold leading-tight">We'd love to hear from you.</h2>
           <p className="mt-4 text-white/80 leading-relaxed">
-            Interested in our products? Drop us a message or reach out on WhatsApp — we'll get back to you with details, pricing, and delivery options.
+            Interested in our products? Drop us a message and we'll get back to you with details, pricing, and delivery options.
           </p>
           <div className="mt-8 space-y-3 text-sm text-white/85">
             <p>📞 +91 99999 99999</p>
             <p>✉️ hello@vainavi.in</p>
             <p>📍 Tamil Nadu, India</p>
           </div>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-gold mt-8">
-            <MessageCircle size={16} /> Chat on WhatsApp
-          </a>
         </motion.div>
 
         <motion.form
