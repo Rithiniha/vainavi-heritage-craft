@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Leaf, Sparkles, ShieldCheck, Wheat, Heart, Recycle, HandHeart,
-  Flame, Droplet, CheckCircle2, Star, ArrowRight, MessageCircle, Send,
+  Flame, Droplet, CheckCircle2, Star, ArrowRight, Send,
 } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const WHATSAPP = "https://wa.me/919999999999?text=Hello%20Vainavi%2C%20I%27d%20like%20to%20enquire";
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -50,7 +50,6 @@ function Home() {
         <WhyUs />
         <Benefits />
         <Testimonials />
-        <Blog />
         <Enquiry />
       </main>
       <Footer />
