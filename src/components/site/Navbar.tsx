@@ -7,11 +7,11 @@ const NAV = [
   { label: "About", href: "#about" },
   { label: "Products", href: "#products" },
   { label: "Benefits", href: "#benefits" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
 const WHATSAPP = "https://wa.me/919999999999?text=Hello%20Vainavi%2C%20I%27d%20like%20to%20enquire";
+
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,15 +55,6 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="WhatsApp"
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] text-white hover:scale-105 transition-transform"
-          >
-            <MessageCircle size={18} />
-          </a>
           <a href="#contact" className="btn-primary">Enquire Now</a>
         </div>
 
@@ -89,9 +80,6 @@ export function Navbar() {
             </a>
           ))}
           <div className="flex gap-3 pt-3 border-t border-border">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-outline flex-1">
-              WhatsApp
-            </a>
             <a href="#contact" onClick={() => setOpen(false)} className="btn-primary flex-1">
               Enquire
             </a>
