@@ -397,54 +397,6 @@ function Testimonials() {
   );
 }
 
-/* ----------------------------- BLOG ----------------------------- */
-function Blog() {
-  const posts = [
-    { t: "Benefits of Cold Pressed Oils", e: "How traditional extraction preserves nutrients you can actually taste.", c: "from-amber-100 to-amber-200" },
-    { t: "Why Millets Are Returning to Indian Kitchens", e: "A look at the heritage grains making a comeback for good reason.", c: "from-emerald-100 to-emerald-200" },
-    { t: "How to Choose the Right Cooking Oil", e: "A simple guide to picking oils that match your cooking and health goals.", c: "from-yellow-100 to-yellow-200" },
-  ];
-  return (
-    <section id="blog" className="section-pad bg-background">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <motion.div {...fadeUp} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-          <div>
-            <span className="eyebrow"><Leaf size={14} /> Journal</span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">Latest Insights</h2>
-          </div>
-          <a href="#contact" className="text-primary font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
-            View all <ArrowRight size={16} />
-          </a>
-        </motion.div>
-        <div className="grid md:grid-cols-3 gap-7">
-          {posts.map((p, i) => (
-            <motion.article
-              key={p.t}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{ y: -4 }}
-              className="bg-background rounded-2xl overflow-hidden ring-1 ring-border shadow-soft hover:shadow-card transition"
-            >
-              <div className={`aspect-[16/10] bg-gradient-to-br ${p.c} flex items-center justify-center`}>
-                <Leaf size={48} className="text-[var(--primary-dark)]/40" />
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-[var(--primary-dark)]">{p.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.e}</p>
-                <button className="mt-5 text-primary font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
-                  Read More <ArrowRight size={14} />
-                </button>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ----------------------------- ENQUIRY ----------------------------- */
 function Enquiry() {
   return (
