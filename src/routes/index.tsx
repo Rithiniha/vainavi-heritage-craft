@@ -189,15 +189,13 @@ function About() {
             <Leaf size={14} /> Our Story
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
-            Preserving food wisdom, one pressing at a time.
+            ஒவ்வொரு செக்கிலும் உணவுப் பாரம்பரியத்தைப் பாதுகாக்கிறோம்.
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
-            Vainavi Cold Press is dedicated to preserving traditional food wisdom through
-            wood-pressed oils and naturally grown millets.
+            வைனவி கோல்ட் பிரஸ், மரச்செக்கு எண்ணெய்கள் மற்றும் பாரம்பரிய சிறுதானியங்கள் மூலம் நம் உணவுப் பாரம்பரியத்தைப் பேணுகிறது.
           </p>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            Our products are prepared using age-old methods that retain nutrients, flavor, and
-            authenticity while supporting healthy living for modern families.
+            இயற்கையான சத்துக்களும் உண்மையான சுவையும் நிறைந்த தயாரிப்புகள் மூலம் குடும்பங்களின் ஆரோக்கியமான வாழ்வை ஆதரிக்கிறோம்.
           </p>
           <div className="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
             {features.map((f) => (
