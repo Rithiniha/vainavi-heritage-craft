@@ -1,35 +1,55 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  Leaf, Sparkles, ShieldCheck, Wheat, Heart, Recycle, HandHeart,
-  Flame, Droplet, CheckCircle2, Star, ArrowRight, Send,
+  Leaf,
+  Sparkles,
+  ShieldCheck,
+  Wheat,
+  Heart,
+  Recycle,
+  HandHeart,
+  Flame,
+  Droplet,
+  CheckCircle2,
+  Star,
+  ArrowRight,
+  Send,
 } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollTop } from "@/components/site/ScrollTop";
-import heroAsset from "@/assets/vainavi-hero.asset.json";
-import groundnutImg from "@/assets/groundnut-oil.jpg";
-import sesameImg from "@/assets/sesame-oil.jpg";
-import coconutImg from "@/assets/coconut-oil.jpg";
+import heroImage from "@/assets/vainavi-hero.png";
+import groundnutImg from "@/assets/groundnut-oil.png";
+import sesameImg from "@/assets/seasme-oil.png";
+import coconutImg from "@/assets/coconut-oil.png";
 import milletsImg from "@/assets/millets-grid.jpg";
-import aboutImg from "@/assets/about-press.jpg";
+import aboutImg from "@/assets/about-press.png";
 import benefitsImg from "@/assets/benefits-oil.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Vainavi Cold Press — Pure Wood Pressed Oils & Traditional Millets" },
-      { name: "description", content: "Premium wood pressed oils and nutritious millets from Tamil Nadu. Traditional extraction, 100% natural, chemical free. Enquire today." },
-      { property: "og:title", content: "Vainavi Cold Press — Goodness of Nature, Pressed to Perfection" },
-      { property: "og:description", content: "Pure cold-pressed oils & traditional millets for a healthy you and a better tomorrow." },
-      { property: "og:image", content: heroAsset.url },
+      {
+        name: "description",
+        content:
+          "Premium wood pressed oils and nutritious millets from Tamil Nadu. Traditional extraction, 100% natural, chemical free. Enquire today.",
+      },
+      {
+        property: "og:title",
+        content: "Vainavi Cold Press — Goodness of Nature, Pressed to Perfection",
+      },
+      {
+        property: "og:description",
+        content:
+          "Pure cold-pressed oils & traditional millets for a healthy you and a better tomorrow.",
+      },
+      { property: "og:image", content: heroImage },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
 });
-
-
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -70,18 +90,29 @@ function Hero() {
         }}
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span className="eyebrow"><Leaf size={14} /> Traditional Wood Pressed Goodness</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <span className="eyebrow">
+            <Leaf size={14} /> Traditional Cold Pressed Goodness
+          </span>
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--primary-dark)] leading-[1.05]">
             Pure Cold-Pressed Oils &
             <span className="block text-primary"> Nutritious Traditional Millets</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Bringing farm-fresh nutrition to families through traditional extraction methods and wholesome grains.
+            Bringing farm-fresh nutrition to families through traditional extraction methods and
+            wholesome grains.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="btn-primary">Enquire Now <ArrowRight size={16} /></a>
-            <a href="#products" className="btn-outline">Explore Products</a>
+            <a href="#contact" className="btn-primary">
+              Enquire Now <ArrowRight size={16} />
+            </a>
+            <a href="#products" className="btn-outline">
+              Explore Products
+            </a>
           </div>
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
             {[
@@ -91,7 +122,9 @@ function Hero() {
               { i: <HandHeart size={16} />, t: "Locally Sourced" },
             ].map((x) => (
               <div key={x.t} className="flex items-center gap-2 text-sm text-foreground/80">
-                <span className="w-7 h-7 inline-flex items-center justify-center rounded-full bg-primary/10 text-primary">{x.i}</span>
+                <span className="w-7 h-7 inline-flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                  {x.i}
+                </span>
                 {x.t}
               </div>
             ))}
@@ -106,7 +139,7 @@ function Hero() {
         >
           <div className="relative rounded-2xl overflow-hidden shadow-[0_30px_80px_-30px_rgba(36,70,59,0.45)] ring-1 ring-primary/10 float-anim">
             <img
-              src={heroAsset.url}
+              src={heroImage}
               alt="Vainavi Cold Press — Pure cold pressed oils and millets"
               width={1600}
               height={640}
@@ -137,7 +170,14 @@ function About() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
         <motion.div {...fadeUp} className="relative">
           <div className="rounded-2xl overflow-hidden shadow-card ring-1 ring-border">
-            <img src={aboutImg} alt="Traditional wood press" width={1024} height={1024} loading="lazy" className="w-full h-auto" />
+            <img
+              src={aboutImg}
+              alt="Traditional cold press"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="w-full h-auto"
+            />
           </div>
           <div className="absolute -bottom-6 -right-4 bg-[var(--primary-dark)] text-white rounded-2xl p-5 max-w-[200px] shadow-card hidden md:block">
             <div className="text-3xl font-display font-bold text-[var(--gold)]">25+</div>
@@ -145,20 +185,29 @@ function About() {
           </div>
         </motion.div>
         <motion.div {...fadeUp}>
-          <span className="eyebrow"><Leaf size={14} /> Our Story</span>
+          <span className="eyebrow">
+            <Leaf size={14} /> Our Story
+          </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
             Preserving food wisdom, one pressing at a time.
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
-            Vainavi Cold Press is dedicated to preserving traditional food wisdom through wood-pressed oils and naturally grown millets.
+            Vainavi Cold Press is dedicated to preserving traditional food wisdom through
+            wood-pressed oils and naturally grown millets.
           </p>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            Our products are prepared using age-old methods that retain nutrients, flavor, and authenticity while supporting healthy living for modern families.
+            Our products are prepared using age-old methods that retain nutrients, flavor, and
+            authenticity while supporting healthy living for modern families.
           </p>
           <div className="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
             {features.map((f) => (
-              <div key={f.t} className="flex items-center gap-3 bg-[var(--beige)] rounded-xl p-3 hover:shadow-soft transition">
-                <span className="w-9 h-9 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground shrink-0">{f.i}</span>
+              <div
+                key={f.t}
+                className="flex items-center gap-3 bg-[var(--beige)] rounded-xl p-3 hover:shadow-soft transition"
+              >
+                <span className="w-9 h-9 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground shrink-0">
+                  {f.i}
+                </span>
                 <span className="text-sm font-medium">{f.t}</span>
               </div>
             ))}
@@ -171,9 +220,27 @@ function About() {
 
 /* ----------------------------- PRODUCTS ----------------------------- */
 const OILS = [
-  { name: "Groundnut Oil", price: "₹280", unit: "/L", img: groundnutImg, b: ["Rich in healthy fats", "Traditional extraction", "Ideal for cooking"] },
-  { name: "Sesame Oil (Nallennai)", price: "₹360", unit: "/L", img: sesameImg, b: ["Rich in antioxidants", "Traditional flavour", "Heart-friendly"] },
-  { name: "Coconut Oil", price: "₹380", unit: "/L", img: coconutImg, b: ["Rich in MCTs", "Multipurpose use", "Naturally extracted"] },
+  {
+    name: "கடலை எண்ணெய்",
+    price: "₹280",
+    unit: "/L",
+    img: groundnutImg,
+    b: ["Rich in healthy fats", "Traditional extraction", "Ideal for cooking"],
+  },
+  {
+    name: "நல்லெண்ணெய்",
+    price: "₹360",
+    unit: "/L",
+    img: sesameImg,
+    b: ["Rich in antioxidants", "Traditional flavour", "Heart-friendly"],
+  },
+  {
+    name: "தேங்காய் எண்ணெய்",
+    price: "₹380",
+    unit: "/L",
+    img: coconutImg,
+    b: ["Rich in MCTs", "Multipurpose use", "Naturally extracted"],
+  },
 ];
 
 function Products() {
@@ -181,9 +248,15 @@ function Products() {
     <section id="products" className="section-pad bg-[var(--beige)]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow"><Droplet size={14} /> Our Products</span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">Pure Oils, Pressed the Traditional Way</h2>
-          <p className="mt-4 text-muted-foreground">Pure oils and wholesome grains for a healthier lifestyle.</p>
+          <span className="eyebrow">
+            <Droplet size={14} /> Our Products
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
+            பாரம்பரிய முறையில் தயாரிக்கப்பட்ட தூய எண்ணெய்கள்
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Pure oils and wholesome grains for a healthier lifestyle.
+          </p>
         </motion.div>
 
         <div className="mt-14 grid md:grid-cols-3 gap-7">
@@ -198,11 +271,19 @@ function Products() {
               className="bg-background rounded-2xl overflow-hidden ring-1 ring-border shadow-soft hover:shadow-card transition-shadow"
             >
               <div className="aspect-square overflow-hidden bg-[var(--beige)]">
-                <img src={o.img} alt={o.name} width={768} height={768} loading="lazy"
-                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img
+                  src={o.img}
+                  alt={o.name}
+                  width={768}
+                  height={768}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
               </div>
               <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-[var(--primary-dark)]">{o.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-[var(--primary-dark)]">
+                  {o.name}
+                </h3>
                 <div className="mt-1 flex items-baseline gap-1">
                   <span className="text-2xl font-bold text-primary">{o.price}</span>
                   <span className="text-sm text-muted-foreground">{o.unit}</span>
@@ -214,7 +295,9 @@ function Products() {
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" className="btn-primary mt-6 w-full">Enquire <ArrowRight size={14} /></a>
+                <a href="#contact" className="btn-primary mt-6 w-full">
+                  Enquire <ArrowRight size={14} />
+                </a>
               </div>
             </motion.article>
           ))}
@@ -226,16 +309,16 @@ function Products() {
 
 /* ----------------------------- MILLETS ----------------------------- */
 const MILLETS = [
-  { name: "Varagu", price: "₹100" },
-  { name: "Thinai", price: "₹102" },
-  { name: "Samai", price: "₹116" },
-  { name: "Kambu", price: "₹46" },
-  { name: "Ragi", price: "₹68" },
-  { name: "Kuthiraivali", price: "₹120" },
-  { name: "Karuppu Kavuni", price: "₹136" },
-  { name: "Sivappu Arisi", price: "₹80" },
-  { name: "Mapillai Samba", price: "₹90" },
-  { name: "Kaikuthal Arisi", price: "₹90" },
+  { name: "வரகு", price: "₹100" },
+  { name: "தினை", price: "₹102" },
+  { name: "சாமை", price: "₹116" },
+  { name: "கம்பு", price: "₹46" },
+  { name: "ராகி", price: "₹68" },
+  { name: "குதிரைவாலி", price: "₹120" },
+  { name: "கருப்பு கவுனி", price: "₹136" },
+  { name: "சிவப்பு அரிசி", price: "₹80" },
+  { name: "மாப்பிள்ளை சம்பா", price: "₹90" },
+  { name: "கைக்குத்தல் அரிசி", price: "₹90" },
 ];
 
 function Millets() {
@@ -244,19 +327,32 @@ function Millets() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <motion.div {...fadeUp} className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-end mb-10">
           <div>
-            <span className="eyebrow"><Wheat size={14} /> Traditional Millets</span>
+            <span className="eyebrow">
+              <Wheat size={14} /> Traditional Millets
+            </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
-              Heritage grains, naturally grown.
+             பாரம்பரிய சிறுதானியங்கள்
             </h2>
           </div>
           <p className="text-muted-foreground">
-            Wholesome traditional millets and heritage rice varieties — rich in fiber, protein, and minerals. Sourced directly from Tamil Nadu farmers.
+            Wholesome traditional millets and heritage rice varieties — rich in fiber, protein, and
+            minerals. Sourced directly from Tamil Nadu farmers.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-[1fr_1.4fr] gap-8">
-          <motion.div {...fadeUp} className="rounded-2xl overflow-hidden shadow-card ring-1 ring-border">
-            <img src={milletsImg} alt="Assorted traditional millets" width={1024} height={1024} loading="lazy" className="w-full h-full object-cover" />
+          <motion.div
+            {...fadeUp}
+            className="rounded-2xl overflow-hidden shadow-card ring-1 ring-border"
+          >
+            <img
+              src={milletsImg}
+              alt="Assorted traditional millets"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {MILLETS.map((m, i) => (
@@ -272,7 +368,9 @@ function Millets() {
                 <div className="w-10 h-10 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">
                   <Wheat size={16} />
                 </div>
-                <div className="mt-3 font-display font-semibold text-[var(--primary-dark)]">{m.name}</div>
+                <div className="mt-3 font-display font-semibold text-[var(--primary-dark)]">
+                  {m.name}
+                </div>
                 <div className="mt-1 text-sm">
                   <span className="font-bold text-primary">{m.price}</span>
                   <span className="text-muted-foreground">/kg</span>
@@ -289,17 +387,37 @@ function Millets() {
 /* ----------------------------- WHY US ----------------------------- */
 function WhyUs() {
   const items = [
-    { i: <Leaf size={20} />, t: "Pure Ingredients", d: "No chemicals or additives in any of our products." },
-    { i: <Flame size={20} />, t: "Traditional Methods", d: "Wood-pressed extraction the way it was always meant to be." },
-    { i: <ShieldCheck size={20} />, t: "Nutrient Preservation", d: "Low-heat processing keeps the goodness intact." },
-    { i: <HandHeart size={20} />, t: "Trusted Quality", d: "Fresh, locally sourced, honestly priced." },
+    {
+      i: <Leaf size={20} />,
+      t: "தூய மூலப்பொருட்கள்",
+      d: "No chemicals or additives in any of our products.",
+    },
+    {
+      i: <Flame size={20} />,
+      t: "பாரம்பரிய முறைகள்",
+      d: "Wood-pressed extraction the way it was always meant to be.",
+    },
+    {
+      i: <ShieldCheck size={20} />,
+      t: "சத்துக்கள் பாதுகாப்பு",
+      d: "Low-heat processing keeps the goodness intact.",
+    },
+    {
+      i: <HandHeart size={20} />,
+      t: "நம்பகமான தரம்",
+      d: "Fresh, locally sourced, honestly priced.",
+    },
   ];
   return (
     <section className="section-pad bg-[var(--beige)]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow"><Sparkles size={14} /> Why Choose Us</span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">Why Families Trust Vainavi</h2>
+          <span className="eyebrow">
+            <Sparkles size={14} /> Why Choose Us
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
+            ஏன் வைனவி?
+          </h2>
         </motion.div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {items.map((x, i) => (
@@ -312,8 +430,12 @@ function WhyUs() {
               whileHover={{ y: -4 }}
               className="bg-background rounded-2xl p-6 ring-1 ring-border shadow-soft hover:shadow-card transition"
             >
-              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground inline-flex items-center justify-center">{x.i}</div>
-              <h3 className="mt-4 font-display text-lg font-semibold text-[var(--primary-dark)]">{x.t}</h3>
+              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground inline-flex items-center justify-center">
+                {x.i}
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-[var(--primary-dark)]">
+                {x.t}
+              </h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{x.d}</p>
             </motion.div>
           ))}
@@ -326,31 +448,60 @@ function WhyUs() {
 /* ----------------------------- BENEFITS ----------------------------- */
 function Benefits() {
   const oilB = ["Retains nutrients", "Better flavour", "Chemical free", "Natural extraction"];
-  const milletB = ["Rich in fiber", "Supports digestion", "Natural nutrition", "Traditional superfood"];
+  const milletB = [
+    "Rich in fiber",
+    "Supports digestion",
+    "Natural nutrition",
+    "Traditional superfood",
+  ];
   return (
     <section id="benefits" className="section-pad bg-background">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div {...fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-card ring-1 ring-border">
-          <img src={benefitsImg} alt="Cold pressed oil being poured" width={1024} height={1024} loading="lazy" className="w-full h-auto" />
+        <motion.div
+          {...fadeUp}
+          className="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-card ring-1 ring-border"
+        >
+          <img
+            src={benefitsImg}
+            alt="Cold pressed oil being poured"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            className="w-full h-auto"
+          />
         </motion.div>
         <motion.div {...fadeUp} className="order-1 lg:order-2 space-y-8">
           <div>
-            <span className="eyebrow"><Heart size={14} /> Real Benefits</span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">Goodness you can taste, nutrition you can feel.</h2>
+            <span className="eyebrow">
+              <Heart size={14} /> Real Benefits
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
+              Goodness you can taste, nutrition you can feel.
+            </h2>
           </div>
           <div className="bg-[var(--beige)] rounded-2xl p-6">
-            <h3 className="font-display text-xl font-semibold text-primary flex items-center gap-2"><Droplet size={18} /> Cold Pressed Oil Benefits</h3>
+            <h3 className="font-display text-xl font-semibold text-primary flex items-center gap-2">
+              <Droplet size={18} /> Cold Pressed Oil Benefits
+            </h3>
             <ul className="mt-4 grid sm:grid-cols-2 gap-2">
               {oilB.map((b) => (
-                <li key={b} className="flex gap-2 text-sm"><CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />{b}</li>
+                <li key={b} className="flex gap-2 text-sm">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                  {b}
+                </li>
               ))}
             </ul>
           </div>
           <div className="bg-[var(--beige)] rounded-2xl p-6">
-            <h3 className="font-display text-xl font-semibold text-primary flex items-center gap-2"><Wheat size={18} /> Millet Benefits</h3>
+            <h3 className="font-display text-xl font-semibold text-primary flex items-center gap-2">
+              <Wheat size={18} /> Millet Benefits
+            </h3>
             <ul className="mt-4 grid sm:grid-cols-2 gap-2">
               {milletB.map((b) => (
-                <li key={b} className="flex gap-2 text-sm"><CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />{b}</li>
+                <li key={b} className="flex gap-2 text-sm">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                  {b}
+                </li>
               ))}
             </ul>
           </div>
@@ -371,8 +522,12 @@ function Testimonials() {
     <section className="section-pad bg-[var(--beige)]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow"><Star size={14} /> Testimonials</span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">Loved by Families Across Tamil Nadu</h2>
+          <span className="eyebrow">
+            <Star size={14} /> Testimonials
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[var(--primary-dark)]">
+            Loved by Families Across Tamil Nadu
+          </h2>
         </motion.div>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {t.map((x, i) => (
@@ -385,7 +540,9 @@ function Testimonials() {
               className="bg-background rounded-2xl p-7 ring-1 ring-border shadow-soft"
             >
               <div className="flex gap-0.5 text-[var(--gold)]">
-                {Array.from({ length: 5 }).map((_, k) => <Star key={k} size={16} fill="currentColor" />)}
+                {Array.from({ length: 5 }).map((_, k) => (
+                  <Star key={k} size={16} fill="currentColor" />
+                ))}
               </div>
               <p className="mt-4 text-foreground/85 leading-relaxed">"{x.q}"</p>
               <p className="mt-4 text-sm font-medium text-muted-foreground">— {x.a}</p>
@@ -400,32 +557,67 @@ function Testimonials() {
 /* ----------------------------- ENQUIRY ----------------------------- */
 function Enquiry() {
   return (
-    <section id="contact" className="section-pad bg-primary text-primary-foreground relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{ backgroundImage: "radial-gradient(circle at 80% 20%, var(--gold), transparent 50%)" }} />
+    <section
+      id="contact"
+      className="section-pad bg-primary text-primary-foreground relative overflow-hidden"
+    >
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle at 80% 20%, var(--gold), transparent 50%)",
+        }}
+      />
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
         <motion.div {...fadeUp}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[var(--gold)] bg-white/10 px-3 py-1.5 rounded-full">
             <Send size={14} /> Get In Touch
           </span>
-          <h2 className="mt-5 text-3xl sm:text-4xl font-bold leading-tight">We'd love to hear from you.</h2>
+          <h2 className="mt-5 text-3xl sm:text-4xl font-bold leading-tight">
+            We'd love to hear from you.
+          </h2>
           <p className="mt-4 text-white/80 leading-relaxed">
-            Interested in our products? Drop us a message and we'll get back to you with details, pricing, and delivery options.
+            Interested in our products? Drop us a message and we'll get back to you with details,
+            pricing, and delivery options.
           </p>
           <div className="mt-8 space-y-3 text-sm text-white/85">
-            <p>📞 +91 99999 99999</p>
-            <p>✉️ hello@vainavi.in</p>
-            <p>📍 Tamil Nadu, India</p>
+            <p>📞 +91 88386 88395</p>
+            <p>✉️ sreevainavitraders@gmail.com</p>
+            <p>📍 20, TEACHER'S COLONY, KURUMBAPALAYAM,VEDAPATTI POST, COIMBATORE - 641007</p>
           </div>
         </motion.div>
 
         <motion.form
           {...fadeUp}
           onSubmit={(e) => {
-            e.preventDefault();
-            alert("Thank you! We'll be in touch shortly.");
-            (e.target as HTMLFormElement).reset();
-          }}
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const email = formData.get("email");
+  const product = formData.get("product");
+  const message = formData.get("message");
+
+  const whatsappMessage =
+`Hello! I am contacting you through the Vainavi website.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Product Interested In: ${product}
+
+Message:
+${message}`;
+
+  const whatsappUrl =
+    `https://wa.me/919790672944?text=${encodeURIComponent(whatsappMessage)}`;
+
+  window.open(whatsappUrl, "_blank");
+
+  form.reset();
+}}
           className="bg-white text-foreground rounded-2xl p-7 sm:p-8 shadow-card grid gap-4"
         >
           <div className="grid sm:grid-cols-2 gap-4">
@@ -434,21 +626,33 @@ function Enquiry() {
           </div>
           <Field label="Email" name="email" type="email" placeholder="you@example.com" required />
           <div>
-            <label className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Product Interested In</label>
-            <select name="product" required
-                    className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40">
+            <label className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Product Interested In
+            </label>
+            <select
+              name="product"
+              required
+              className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+            >
               <option value="">Select a product</option>
-              <option>Groundnut Oil</option>
-              <option>Sesame Oil (Nallennai)</option>
-              <option>Coconut Oil</option>
-              <option>Millets</option>
+              <option>கடலை எண்ணெய்</option>
+              <option>நல்லெண்ணெய்</option>
+              <option>தேங்காய் எண்ணெய்</option>
+              <option>Traditional Millets</option>
               <option>Other / Bulk</option>
             </select>
           </div>
           <div>
-            <label className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Message</label>
-            <textarea name="message" rows={4} placeholder="Tell us about your enquiry..." required
-              className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none" />
+            <label className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Message
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Tell us about your enquiry..."
+              required
+              className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none"
+            />
           </div>
           <button type="submit" className="btn-primary mt-2 justify-center">
             <Send size={16} /> Send Enquiry
@@ -459,10 +663,15 @@ function Enquiry() {
   );
 }
 
-function Field({ label, ...props }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+function Field({
+  label,
+  ...props
+}: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{label}</label>
+      <label className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+        {label}
+      </label>
       <input
         {...props}
         className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
