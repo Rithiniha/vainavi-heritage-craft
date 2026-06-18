@@ -612,7 +612,7 @@ Message:
 ${message}`;
 
   const whatsappUrl =
-    `https://wa.me/919790672944?text=${encodeURIComponent(whatsappMessage)}`;
+    `https://wa.me/918838688395?text=${encodeURIComponent(whatsappMessage)}`;
 
   window.open(whatsappUrl, "_blank");
 
