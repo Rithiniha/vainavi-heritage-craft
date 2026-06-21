@@ -116,18 +116,18 @@ function Hero() {
             Pure Cold-Pressed Oils &
             <span className="block text-primary">Nutritious Traditional Millets</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Bringing farm-fresh nutrition to families through traditional extraction methods and
             wholesome grains.
           </p>
-          <div className="mt-6 inline-flex flex-wrap items-center gap-3 rounded-full border border-primary/20 bg-white/85 px-5 py-3 text-sm font-semibold text-[var(--primary-dark)] shadow-soft backdrop-blur">
+          <div className="mt-4 inline-flex flex-wrap items-center gap-3 rounded-full border border-primary/20 bg-white/85 px-5 py-2.5 text-sm font-semibold text-[var(--primary-dark)] shadow-soft backdrop-blur">
             <span className="inline-flex items-center gap-2 text-primary">
               <ShieldCheck size={18} /> FSSAI Certified
             </span>
             <span className="hidden h-4 w-px bg-primary/20 sm:block" />
             <span>Reg. No. 22426018000375</span>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <a href="#contact" className="btn-primary">
               Enquire Now <ArrowRight size={16} />
             </a>
@@ -135,7 +135,7 @@ function Hero() {
               Explore Products
             </a>
           </div>
-          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mt-7 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
             {[
               { icon: <Leaf size={16} />, text: "100% Natural" },
               { icon: <ShieldCheck size={16} />, text: "Chemical Free" },
