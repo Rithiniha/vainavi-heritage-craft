@@ -120,6 +120,13 @@ function Hero() {
             Bringing farm-fresh nutrition to families through traditional extraction methods and
             wholesome grains.
           </p>
+          <div className="mt-6 inline-flex flex-wrap items-center gap-3 rounded-full border border-primary/20 bg-white/85 px-5 py-3 text-sm font-semibold text-[var(--primary-dark)] shadow-soft backdrop-blur">
+            <span className="inline-flex items-center gap-2 text-primary">
+              <ShieldCheck size={18} /> FSSAI Certified
+            </span>
+            <span className="hidden h-4 w-px bg-primary/20 sm:block" />
+            <span>Reg. No. 22426018000375</span>
+          </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className="btn-primary">
               Enquire Now <ArrowRight size={16} />
