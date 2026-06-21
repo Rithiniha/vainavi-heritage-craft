@@ -139,7 +139,7 @@ function Hero() {
             {[
               { icon: <Leaf size={16} />, text: "100% Natural" },
               { icon: <ShieldCheck size={16} />, text: "Chemical Free" },
-              { icon: <Flame size={16} />, text: "Wood Pressed" },
+              { icon: <Flame size={16} />, text: "Cold Pressed" },
               { icon: <HandHeart size={16} />, text: "Locally Sourced" },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-2 text-sm text-foreground/80">
@@ -179,7 +179,7 @@ function Hero() {
 function About() {
   const features = [
     { icon: <Leaf size={18} />, text: "100% Natural" },
-    { icon: <Droplet size={18} />, text: "Wood Pressed" },
+    { icon: <Droplet size={18} />, text: "Cold Pressed" },
     { icon: <Wheat size={18} />, text: "Farm Sourced" },
     { icon: <Heart size={18} />, text: "Nutrient Rich" },
     { icon: <Recycle size={18} />, text: "Sustainable" },
