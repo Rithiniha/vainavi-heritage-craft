@@ -673,7 +673,7 @@ ${formData.get("message")}`;
             <Field label="Name" name="name" placeholder="Your full name" required />
             <Field label="Phone Number" name="phone" type="tel" placeholder="+91" required />
           </div>
-          <Field label="Email" name="email" type="email" placeholder="you@example.com" required />
+          <Field label="Email" name="email" type="email" placeholder="you@example.com" />
           <div>
             <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Product Interested In
