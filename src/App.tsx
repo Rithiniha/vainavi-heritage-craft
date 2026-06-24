@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from "react";
+import { useState, type InputHTMLAttributes, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -41,6 +41,8 @@ const oils = [
     name: "கடலை எண்ணெய்",
     price: "₹280",
     unit: "/L",
+    tinPrice: "₹4,500",
+    tinUnit: "/ 15kg Tin",
     img: groundnutImg,
     benefits: ["Rich in healthy fats", "Traditional extraction", "Ideal for cooking"],
   },
@@ -48,6 +50,8 @@ const oils = [
     name: "நல்லெண்ணெய்",
     price: "₹360",
     unit: "/L",
+    tinPrice: "₹5,850",
+    tinUnit: "/ 15kg Tin",
     img: sesameImg,
     benefits: ["Rich in antioxidants", "Traditional flavour", "Heart-friendly"],
   },
@@ -55,6 +59,8 @@ const oils = [
     name: "தேங்காய் எண்ணெய்",
     price: "₹380",
     unit: "/L",
+    tinPrice: "₹5,900",
+    tinUnit: "/ 15kg Tin",
     img: coconutImg,
     benefits: ["Rich in MCTs", "Multipurpose use", "Naturally extracted"],
   },
@@ -257,49 +263,97 @@ function Products() {
 
         <div className="mt-14 grid gap-7 md:grid-cols-3">
           {oils.map((oil, index) => (
-            <motion.article
-              key={oil.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{ y: -6 }}
-              className="overflow-hidden rounded-2xl bg-background shadow-soft ring-1 ring-border transition-shadow hover:shadow-card"
-            >
-              <div className="aspect-square overflow-hidden bg-[var(--beige)]">
-                <img
-                  src={oil.img}
-                  alt={oil.name}
-                  width={768}
-                  height={768}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-[var(--primary-dark)]">
-                  {oil.name}
-                </h3>
-                <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-primary">{oil.price}</span>
-                  <span className="text-sm text-muted-foreground">{oil.unit}</span>
-                </div>
-                <ul className="mt-4 space-y-2">
-                  {oil.benefits.map((benefit) => (
-                    <li key={benefit} className="flex gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-primary" /> {benefit}
-                    </li>
-                  ))}
-                </ul>
-                <a href="#contact" className="btn-primary mt-6 w-full">
-                  Enquire <ArrowRight size={14} />
-                </a>
-              </div>
-            </motion.article>
+            <ProductCard key={oil.name} oil={oil} index={index} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ProductCard({ oil, index }: { oil: typeof oils[0]; index: number }) {
+  const [selectedUnit, setSelectedUnit] = useState<"1L" | "15kg">("1L");
+
+  const currentPrice = selectedUnit === "1L" ? oil.price : oil.tinPrice;
+  const currentUnit = selectedUnit === "1L" ? oil.unit : oil.tinUnit;
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileHover={{ y: -6 }}
+      className="flex flex-col overflow-hidden rounded-2xl bg-background shadow-soft ring-1 ring-border transition-shadow hover:shadow-card"
+    >
+      <div className="aspect-square overflow-hidden bg-[var(--beige)]">
+        <img
+          src={oil.img}
+          alt={oil.name}
+          width={768}
+          height={768}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="font-display text-xl font-semibold text-[var(--primary-dark)]">
+          {oil.name}
+        </h3>
+        
+        <ul className="mt-4 space-y-2 flex-1">
+          {oil.benefits.map((benefit) => (
+            <li key={benefit} className="flex gap-2 text-sm text-foreground/80">
+              <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-primary" /> {benefit}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 flex flex-col gap-3 rounded-xl bg-[var(--beige)] p-4 ring-1 ring-primary/10">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold text-muted-foreground">Quantity</span>
+            <motion.div
+              animate={{ y: [0, -4, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="relative rounded-lg bg-primary/10 ring-1 ring-primary/30"
+            >
+              <select
+                value={selectedUnit}
+                onChange={(e) => setSelectedUnit(e.target.value as "1L" | "15kg")}
+                className="w-full appearance-none bg-transparent py-1.5 pl-3 pr-8 text-sm font-bold text-primary focus:outline-none cursor-pointer"
+              >
+                <option value="1L">1 Litre</option>
+                <option value="15kg">15kg Tin</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-primary">
+                <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="flex items-baseline justify-between border-t border-primary/10 pt-3">
+            <span className="text-sm font-medium text-foreground/80">Price:</span>
+            <div className="flex items-baseline gap-1">
+              <motion.span 
+                key={currentPrice}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-2xl font-bold text-primary"
+              >
+                {currentPrice}
+              </motion.span>
+              <span className="text-sm font-medium text-muted-foreground">{currentUnit}</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" className="btn-primary mt-4 w-full">
+          Enquire <ArrowRight size={14} />
+        </a>
+      </div>
+    </motion.article>
   );
 }
 
