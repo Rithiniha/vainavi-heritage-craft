@@ -39,30 +39,39 @@ const fadeUp = {
 const oils = [
   {
     name: "கடலை எண்ணெய்",
-    price: "₹280",
-    unit: "/L",
-    tinPrice: "₹4,500",
-    tinUnit: "/ 15kg Tin",
     img: groundnutImg,
     benefits: ["Rich in healthy fats", "Traditional extraction", "Ideal for cooking"],
+    prices: [
+      { unit: "250ml", price: "₹75", suffix: "/ 250ml" },
+      { unit: "500ml", price: "₹150", suffix: "/ 500ml" },
+      { unit: "1L", price: "₹280", suffix: "/ L" },
+      { unit: "5L", price: "₹1,400", suffix: "/ 5L" },
+      { unit: "15kg Tin", price: "₹4,250", suffix: "/ 15kg Tin" },
+    ],
   },
   {
     name: "நல்லெண்ணெய்",
-    price: "₹360",
-    unit: "/L",
-    tinPrice: "₹5,850",
-    tinUnit: "/ 15kg Tin",
     img: sesameImg,
     benefits: ["Rich in antioxidants", "Traditional flavour", "Heart-friendly"],
+    prices: [
+      { unit: "250ml", price: "₹100", suffix: "/ 250ml" },
+      { unit: "500ml", price: "₹200", suffix: "/ 500ml" },
+      { unit: "1L", price: "₹380", suffix: "/ L" },
+      { unit: "5L", price: "₹1,900", suffix: "/ 5L" },
+      { unit: "15kg Tin", price: "₹5,580", suffix: "/ 15kg Tin" },
+    ],
   },
   {
     name: "தேங்காய் எண்ணெய்",
-    price: "₹380",
-    unit: "/L",
-    tinPrice: "₹5,900",
-    tinUnit: "/ 15kg Tin",
     img: coconutImg,
     benefits: ["Rich in MCTs", "Multipurpose use", "Naturally extracted"],
+    prices: [
+      { unit: "250ml", price: "₹110", suffix: "/ 250ml" },
+      { unit: "500ml", price: "₹200", suffix: "/ 500ml" },
+      { unit: "1L", price: "₹400", suffix: "/ L" },
+      { unit: "5L", price: "₹2,000", suffix: "/ 5L" },
+      { unit: "15kg Tin", price: "₹5,775", suffix: "/ 15kg Tin" },
+    ],
   },
 ];
 
@@ -272,10 +281,9 @@ function Products() {
 }
 
 function ProductCard({ oil, index }: { oil: typeof oils[0]; index: number }) {
-  const [selectedUnit, setSelectedUnit] = useState<"1L" | "15kg">("1L");
+  const [selectedUnitIndex, setSelectedUnitIndex] = useState(2); // default to 1L (index 2)
 
-  const currentPrice = selectedUnit === "1L" ? oil.price : oil.tinPrice;
-  const currentUnit = selectedUnit === "1L" ? oil.unit : oil.tinUnit;
+  const selectedPricing = oil.prices[selectedUnitIndex];
 
   return (
     <motion.article
@@ -318,12 +326,15 @@ function ProductCard({ oil, index }: { oil: typeof oils[0]; index: number }) {
               className="relative rounded-lg bg-primary/10 ring-1 ring-primary/30"
             >
               <select
-                value={selectedUnit}
-                onChange={(e) => setSelectedUnit(e.target.value as "1L" | "15kg")}
+                value={selectedUnitIndex}
+                onChange={(e) => setSelectedUnitIndex(Number(e.target.value))}
                 className="w-full appearance-none bg-transparent py-1.5 pl-3 pr-8 text-sm font-bold text-primary focus:outline-none cursor-pointer"
               >
-                <option value="1L">1 Litre</option>
-                <option value="15kg">15kg Tin</option>
+                {oil.prices.map((p, i) => (
+                  <option key={p.unit} value={i}>
+                    {p.unit}
+                  </option>
+                ))}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-primary">
                 <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -337,14 +348,14 @@ function ProductCard({ oil, index }: { oil: typeof oils[0]; index: number }) {
             <span className="text-sm font-medium text-foreground/80">Price:</span>
             <div className="flex items-baseline gap-1">
               <motion.span 
-                key={currentPrice}
+                key={selectedPricing.price}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-2xl font-bold text-primary"
               >
-                {currentPrice}
+                {selectedPricing.price}
               </motion.span>
-              <span className="text-sm font-medium text-muted-foreground">{currentUnit}</span>
+              <span className="text-sm font-medium text-muted-foreground">{selectedPricing.suffix}</span>
             </div>
           </div>
         </div>
