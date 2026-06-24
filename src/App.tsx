@@ -430,7 +430,7 @@ function WhyUs() {
     {
       icon: <Flame size={20} />,
       title: "பாரம்பரிய முறைகள்",
-      desc: "cold-pressed extraction the way it was always meant to be.",
+      desc: "Cold-pressed extraction the way it was always meant to be.",
     },
     {
       icon: <ShieldCheck size={20} />,
